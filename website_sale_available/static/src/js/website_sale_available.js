@@ -12,10 +12,12 @@ $(document).ready(function () {
         $(el).each(function(){
             var quantity =  parseInt($(this).val());
             $tr = $(this).parent().parent().parent();
+            var typrod = $tr.find('[name="type_product"]').text().trim()
             var virtual_available = parseInt($tr.find('[name="virtual_available"]').text())
             var enough = quantity <= virtual_available
-            $tr.toggleClass('warning', !enough);
-            if (!enough)
+            if (typrod != "service")
+                $tr.toggleClass('warning', !enough);
+            if (!enough && typrod != "service")
                 available = false;
         })
         $('a[href$="/shop/checkout"]').toggleClass('disabled', !available);

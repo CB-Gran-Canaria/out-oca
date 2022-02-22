@@ -18,6 +18,9 @@
         <td  class="text-right" name="virtual_available">
             <t t-esc="line.product_id.virtual_available"/>
         </td>
+        <td  class="text-right" name="type_product">
+            <t t-esc="line.product_id.type"/>
+        </td>
     </xpath>
 </template>
 
